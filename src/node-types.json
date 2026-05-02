@@ -740,8 +740,16 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "command_end",
+          "named": true
+        },
+        {
+          "type": "command_start",
+          "named": true
+        },
         {
           "type": "content",
           "named": true
@@ -756,6 +764,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "command_start",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "compound_assignment_expression",
@@ -2107,8 +2120,16 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "command_end",
+          "named": true
+        },
+        {
+          "type": "command_start",
+          "named": true
+        },
         {
           "type": "content",
           "named": true
@@ -2147,7 +2168,7 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "content",
@@ -2155,6 +2176,14 @@
         },
         {
           "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "string_end",
+          "named": true
+        },
+        {
+          "type": "string_start",
           "named": true
         }
       ]
@@ -2460,7 +2489,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "content",
@@ -2471,11 +2500,24 @@
           "named": true
         },
         {
+          "type": "string_end",
+          "named": true
+        },
+        {
           "type": "string_interpolation",
+          "named": true
+        },
+        {
+          "type": "string_start",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "string_start",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "struct_definition",
@@ -3028,6 +3070,10 @@
     "named": true
   },
   {
+    "type": "command_end",
+    "named": true
+  },
+  {
     "type": "const",
     "named": false
   },
@@ -3130,6 +3176,10 @@
   {
     "type": "return",
     "named": false
+  },
+  {
+    "type": "string_end",
+    "named": true
   },
   {
     "type": "struct",

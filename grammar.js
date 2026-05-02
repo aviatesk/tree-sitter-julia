@@ -987,27 +987,27 @@ module.exports = grammar({
 
     string_literal: $ => choice(
       seq(
-        $._delimiter_str_1,
+        alias($._delimiter_str_1, $.string_start),
         repeat(choice(alias($._content_str_1, $.content), $.string_interpolation, $.escape_sequence)),
-        $._end_str,
+        alias($._end_str, $.string_end),
       ),
       seq(
-        $._delimiter_str_3,
+        alias($._delimiter_str_3, $.string_start),
         repeat(choice(alias($._content_str_3, $.content), $.string_interpolation, $.escape_sequence)),
-        $._end_str,
+        alias($._end_str, $.string_end),
       ),
     ),
 
     command_literal: $ => choice(
       seq(
-        $._delimiter_cmd_1,
+        alias($._delimiter_cmd_1, $.command_start),
         repeat(choice(alias($._content_cmd_1, $.content), $.string_interpolation, $.escape_sequence)),
-        $._end_cmd,
+        alias($._end_cmd, $.command_end),
       ),
       seq(
-        $._delimiter_cmd_3,
+        alias($._delimiter_cmd_3, $.command_start),
         repeat(choice(alias($._content_cmd_3, $.content), $.string_interpolation, $.escape_sequence)),
-        $._end_cmd,
+        alias($._end_cmd, $.command_end),
       ),
     ),
 
@@ -1016,14 +1016,14 @@ module.exports = grammar({
       $._immediate_string_start,
       choice(
         seq(
-          $._delimiter_str_1,
+          alias($._delimiter_str_1, $.string_start),
           repeat(choice(alias($._content_str_1_raw, $.content), $.escape_sequence)),
-          $._end_str,
+          alias($._end_str, $.string_end),
         ),
         seq(
-          $._delimiter_str_3,
+          alias($._delimiter_str_3, $.string_start),
           repeat(choice(alias($._content_str_3_raw, $.content), $.escape_sequence)),
-          $._end_str,
+          alias($._end_str, $.string_end),
         ),
       ),
       optional(field('suffix', $.identifier)),
@@ -1034,14 +1034,14 @@ module.exports = grammar({
       $._immediate_command_start,
       choice(
         seq(
-          $._delimiter_cmd_1,
+          alias($._delimiter_cmd_1, $.command_start),
           repeat(choice(alias($._content_cmd_1_raw, $.content), $.escape_sequence)),
-          $._end_cmd,
+          alias($._end_cmd, $.command_end),
         ),
         seq(
-          $._delimiter_cmd_3,
+          alias($._delimiter_cmd_3, $.command_start),
           repeat(choice(alias($._content_cmd_3_raw, $.content), $.escape_sequence)),
-          $._end_cmd,
+          alias($._end_cmd, $.command_end),
         ),
       ),
       optional(field('suffix', $.identifier)),
