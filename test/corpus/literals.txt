@@ -30,7 +30,6 @@ integer number literals
   (integer_literal)
   (integer_literal))
 
-
 ==============================
 float number literals
 ==============================
@@ -69,7 +68,6 @@ float number literals
   (float_literal)
   (float_literal))
 
-
 ==============================
 character literals
 ==============================
@@ -89,7 +87,6 @@ character literals
   (character_literal)
   (character_literal))
 
-
 ==============================
 string literals
 ==============================
@@ -108,29 +105,64 @@ band = "Interpol"
 ---
 
 (source_file
-  (string_literal)
-  (string_literal (escape_sequence))
-  (string_literal (content))
-  (string_literal (content) (escape_sequence) (content) (escape_sequence) (content))
-  (string_literal (content))
+  (string_literal
+    (string_start)
+    (string_end))
+  (string_literal
+    (string_start)
+    (escape_sequence)
+    (string_end))
+  (string_literal
+    (string_start)
+    (content)
+    (string_end))
+  (string_literal
+    (string_start)
+    (content)
+    (escape_sequence)
+    (content)
+    (escape_sequence)
+    (content)
+    (string_end))
+  (string_literal
+    (string_start)
+    (content)
+    (string_end))
   (assignment
     (identifier)
     (operator)
-    (string_literal (content)))
+    (string_literal
+      (string_start)
+      (content)
+      (string_end)))
   (string_literal
-    (string_interpolation (identifier))
-    (content))
+    (string_start)
+    (string_interpolation
+      (identifier))
+    (content)
+    (string_end))
   (string_literal
-    (string_interpolation (juxtaposition_expression (integer_literal) (identifier)))
-    (content))
+    (string_start)
+    (string_interpolation
+      (juxtaposition_expression
+        (integer_literal)
+        (identifier)))
+    (content)
+    (string_end))
   (string_literal
+    (string_start)
     (content)
     (string_interpolation
       (string_literal
+        (string_start)
         (content)
         (string_interpolation
-          (string_literal (content)))))))
-
+          (string_literal
+            (string_start)
+            (content)
+            (string_end)))
+        (string_end)))
+    (string_end)))
 
 ==============================
 command string literals
@@ -147,19 +179,36 @@ echo "\033[31mred\033[m"
 ---
 
 (source_file
-  (command_literal (content))
+  (command_literal
+    (command_start)
+    (content)
+    (command_end))
   (prefixed_command_literal
     prefix: (identifier)
-    (content))
-  (command_literal (content) (string_interpolation (identifier)))
-  (command_literal (content) (escape_sequence) (content) (escape_sequence))
+    (command_start)
+    (content)
+    (command_end))
   (command_literal
-   (content)
-   (escape_sequence)
-   (content)
-   (escape_sequence)
-   (content)))
-
+    (command_start)
+    (content)
+    (string_interpolation
+      (identifier))
+    (command_end))
+  (command_literal
+    (command_start)
+    (content)
+    (escape_sequence)
+    (content)
+    (escape_sequence)
+    (command_end))
+  (command_literal
+    (command_start)
+    (content)
+    (escape_sequence)
+    (content)
+    (escape_sequence)
+    (content)
+    (command_end)))
 
 ==============================
 non-standard string literals
@@ -176,18 +225,23 @@ K"\\"
     (identifier)
     (operator)
     (prefixed_string_literal
-        prefix: (identifier)
-        (content)))
+      prefix: (identifier)
+      (string_start)
+      (content)
+      (string_end)))
   (assignment
     (identifier)
     (operator)
     (prefixed_string_literal
-        prefix: (identifier)
-        (content)))
+      prefix: (identifier)
+      (string_start)
+      (content)
+      (string_end)))
   (prefixed_string_literal
     prefix: (identifier)
-    (escape_sequence)))
-
+    (string_start)
+    (escape_sequence)
+    (string_end)))
 
 ==============================
 comments
@@ -210,7 +264,10 @@ nested #= comments =# =#
   (line_comment)
   (block_comment)
   (block_comment)
-  (assignment (identifier) (operator) (block_comment) (integer_literal))
+  (assignment
+    (identifier)
+    (operator)
+    (block_comment)
+    (integer_literal))
   (block_comment)
   (block_comment))
-

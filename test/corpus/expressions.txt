@@ -73,7 +73,9 @@ df."a"
   (field_expression
     (identifier)
     (string_literal
-      (content))))
+      (string_start)
+      (content)
+      (string_end))))
 
 ==============================
 index expressions
@@ -99,7 +101,9 @@ a[1, :]
       (operator)))
   (index_expression
     (string_literal
-      (content))
+      (string_start)
+      (content)
+      (string_end))
     (vector_expression
       (integer_literal))))
 
@@ -166,7 +170,9 @@ new{typeof(xs)}(xs)
     (identifier)
     (argument_list
       (string_literal
-        (content))
+        (string_start)
+        (content)
+        (string_end))
       (integer_literal)))
   (call_expression
     (identifier)
@@ -250,13 +256,17 @@ joinpath(@__DIR__, "grammar.js")
         (operator)
         (identifier))
       (string_literal
-        (content))))
+        (string_start)
+        (content)
+        (string_end))))
   (macrocall_expression
     (macro_identifier
       (identifier))
     (macro_argument_list
       (string_literal
-        (content))
+        (string_start)
+        (content)
+        (string_end))
       (compound_statement
         (block
           (assignment
@@ -281,7 +291,9 @@ joinpath(@__DIR__, "grammar.js")
         (macro_identifier
           (identifier)))
       (string_literal
-        (content))))
+        (string_start)
+        (content)
+        (string_end))))
   (macrocall_expression
     (macro_identifier
       (identifier))
@@ -467,7 +479,9 @@ end
       (integer_literal)))
   (interpolation_expression
     (string_literal
-      (content)))
+      (string_start)
+      (content)
+      (string_end)))
   (using_statement
     (selected_import
       (interpolation_expression
@@ -583,7 +597,9 @@ x'x
     (integer_literal)
     (prefixed_string_literal
       (identifier)
-      (content)))
+      (string_start)
+      (content)
+      (string_end)))
   (juxtaposition_expression
     (adjoint_expression
       (identifier))

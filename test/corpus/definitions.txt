@@ -643,7 +643,9 @@ Base.show(io::IO, ::MIME"text/plain", m::Method; kwargs...) = show_method(io, m,
         (unary_typed_expression
           (prefixed_string_literal
             prefix: (identifier)
-            (content)))
+            (string_start)
+            (content)
+            (string_end)))
         (typed_expression (identifier) (identifier))
         (splat_expression (identifier))))
     (operator)

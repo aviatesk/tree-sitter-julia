@@ -4137,8 +4137,13 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_delimiter_str_1"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_delimiter_str_1"
+              },
+              "named": true,
+              "value": "string_start"
             },
             {
               "type": "REPEAT",
@@ -4166,8 +4171,13 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "_end_str"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_end_str"
+              },
+              "named": true,
+              "value": "string_end"
             }
           ]
         },
@@ -4175,8 +4185,13 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_delimiter_str_3"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_delimiter_str_3"
+              },
+              "named": true,
+              "value": "string_start"
             },
             {
               "type": "REPEAT",
@@ -4204,8 +4219,13 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "_end_str"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_end_str"
+              },
+              "named": true,
+              "value": "string_end"
             }
           ]
         }
@@ -4218,8 +4238,13 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_delimiter_cmd_1"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_delimiter_cmd_1"
+              },
+              "named": true,
+              "value": "command_start"
             },
             {
               "type": "REPEAT",
@@ -4247,8 +4272,13 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "_end_cmd"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_end_cmd"
+              },
+              "named": true,
+              "value": "command_end"
             }
           ]
         },
@@ -4256,8 +4286,13 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "_delimiter_cmd_3"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_delimiter_cmd_3"
+              },
+              "named": true,
+              "value": "command_start"
             },
             {
               "type": "REPEAT",
@@ -4285,8 +4320,13 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "_end_cmd"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_end_cmd"
+              },
+              "named": true,
+              "value": "command_end"
             }
           ]
         }
@@ -4317,8 +4357,13 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "SYMBOL",
-                    "name": "_delimiter_str_1"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_delimiter_str_1"
+                    },
+                    "named": true,
+                    "value": "string_start"
                   },
                   {
                     "type": "REPEAT",
@@ -4342,8 +4387,13 @@
                     }
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "_end_str"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_end_str"
+                    },
+                    "named": true,
+                    "value": "string_end"
                   }
                 ]
               },
@@ -4351,8 +4401,13 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "SYMBOL",
-                    "name": "_delimiter_str_3"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_delimiter_str_3"
+                    },
+                    "named": true,
+                    "value": "string_start"
                   },
                   {
                     "type": "REPEAT",
@@ -4376,8 +4431,13 @@
                     }
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "_end_str"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_end_str"
+                    },
+                    "named": true,
+                    "value": "string_end"
                   }
                 ]
               }
@@ -4427,8 +4487,13 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "SYMBOL",
-                    "name": "_delimiter_cmd_1"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_delimiter_cmd_1"
+                    },
+                    "named": true,
+                    "value": "command_start"
                   },
                   {
                     "type": "REPEAT",
@@ -4452,8 +4517,13 @@
                     }
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "_end_cmd"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_end_cmd"
+                    },
+                    "named": true,
+                    "value": "command_end"
                   }
                 ]
               },
@@ -4461,8 +4531,13 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "SYMBOL",
-                    "name": "_delimiter_cmd_3"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_delimiter_cmd_3"
+                    },
+                    "named": true,
+                    "value": "command_start"
                   },
                   {
                     "type": "REPEAT",
@@ -4486,8 +4561,13 @@
                     }
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "_end_cmd"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_end_cmd"
+                    },
+                    "named": true,
+                    "value": "command_end"
                   }
                 ]
               }
