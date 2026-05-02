@@ -241,25 +241,28 @@
   ":" @punctuation.delimiter)
 
 (struct_definition
-  [
-    "mutable"
-    "struct"
-    "end"
-  ] @keyword.type)
+  (struct_keyword
+    [
+      "mutable"
+      "struct"
+    ] @keyword.type)
+  "end" @keyword.type)
 
 (abstract_definition
-  [
-    "abstract"
-    "type"
-    "end"
-  ] @keyword.type)
+  (abstract_keyword
+    [
+      "abstract"
+      "type"
+    ] @keyword.type)
+  "end" @keyword.type)
 
 (primitive_definition
-  [
-    "primitive"
-    "type"
-    "end"
-  ] @keyword.type)
+  (primitive_keyword
+    [
+      "primitive"
+      "type"
+    ] @keyword.type)
+  "end" @keyword.type)
 
 (typegroup_definition
   [

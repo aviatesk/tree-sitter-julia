@@ -274,28 +274,31 @@ module.exports = grammar({
     )),
 
     abstract_definition: $ => seq(
-      'abstract',
-      'type',
+      $.abstract_keyword,
       $.type_head,
       'end',
     ),
 
+    abstract_keyword: _ => seq('abstract', 'type'),
+
     primitive_definition: $ => seq(
-      'primitive',
-      'type',
+      $.primitive_keyword,
       $.type_head,
       $.integer_literal,
       'end',
     ),
 
+    primitive_keyword: _ => seq('primitive', 'type'),
+
     struct_definition: $ => seq(
-      optional('mutable'),
-      'struct',
+      $.struct_keyword,
       $.type_head,
       optional($._terminator),
       optional($.block),
       'end',
     ),
+
+    struct_keyword: _ => seq(optional('mutable'), 'struct'),
 
     typegroup_definition: $ => seq(
       'typegroup',

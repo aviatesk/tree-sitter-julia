@@ -424,12 +424,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "abstract"
-        },
-        {
-          "type": "STRING",
-          "value": "type"
+          "type": "SYMBOL",
+          "name": "abstract_keyword"
         },
         {
           "type": "SYMBOL",
@@ -441,16 +437,25 @@
         }
       ]
     },
-    "primitive_definition": {
+    "abstract_keyword": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "primitive"
+          "value": "abstract"
         },
         {
           "type": "STRING",
           "value": "type"
+        }
+      ]
+    },
+    "primitive_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "primitive_keyword"
         },
         {
           "type": "SYMBOL",
@@ -466,24 +471,25 @@
         }
       ]
     },
+    "primitive_keyword": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "primitive"
+        },
+        {
+          "type": "STRING",
+          "value": "type"
+        }
+      ]
+    },
     "struct_definition": {
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "mutable"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "struct"
+          "type": "SYMBOL",
+          "name": "struct_keyword"
         },
         {
           "type": "SYMBOL",
@@ -516,6 +522,27 @@
         {
           "type": "STRING",
           "value": "end"
+        }
+      ]
+    },
+    "struct_keyword": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "mutable"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "struct"
         }
       ]
     },

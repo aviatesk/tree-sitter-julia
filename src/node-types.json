@@ -270,15 +270,24 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "abstract_keyword",
+          "named": true
+        },
         {
           "type": "type_head",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "abstract_keyword",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "adjoint_expression",
@@ -2202,11 +2211,20 @@
           "named": true
         },
         {
+          "type": "primitive_keyword",
+          "named": true
+        },
+        {
           "type": "type_head",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "primitive_keyword",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "public_statement",
@@ -2532,11 +2550,20 @@
           "named": true
         },
         {
+          "type": "struct_keyword",
+          "named": true
+        },
+        {
           "type": "type_head",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "struct_keyword",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "ternary_expression",
