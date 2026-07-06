@@ -2192,6 +2192,10 @@
           "named": true
         },
         {
+          "type": "string_interpolation",
+          "named": true
+        },
+        {
           "type": "string_start",
           "named": true
         }

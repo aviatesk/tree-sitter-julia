@@ -150,6 +150,7 @@ module.exports = grammar({
     $._immediate_brace,
     $._immediate_string_start,
     $._immediate_command_start,
+    $._interpolating_string_prefix,
     $._content_cmd_1,
     $._content_cmd_1_raw,
     $._content_cmd_3,
@@ -1014,22 +1015,41 @@ module.exports = grammar({
       ),
     ),
 
-    prefixed_string_literal: $ => prec.left(seq(
-      field('prefix', $.identifier),
-      $._immediate_string_start,
-      choice(
-        seq(
-          alias($._delimiter_str_1, $.string_start),
-          repeat(choice(alias($._content_str_1_raw, $.content), $.escape_sequence)),
-          alias($._end_str, $.string_end),
+    prefixed_string_literal: $ => prec.left(choice(
+      seq(
+        field('prefix', alias($._interpolating_string_prefix, $.identifier)),
+        $._immediate_string_start,
+        choice(
+          seq(
+            alias($._delimiter_str_1, $.string_start),
+            repeat(choice(alias($._content_str_1, $.content), $.string_interpolation, $.escape_sequence)),
+            alias($._end_str, $.string_end),
+          ),
+          seq(
+            alias($._delimiter_str_3, $.string_start),
+            repeat(choice(alias($._content_str_3, $.content), $.string_interpolation, $.escape_sequence)),
+            alias($._end_str, $.string_end),
+          ),
         ),
-        seq(
-          alias($._delimiter_str_3, $.string_start),
-          repeat(choice(alias($._content_str_3_raw, $.content), $.escape_sequence)),
-          alias($._end_str, $.string_end),
-        ),
+        optional(field('suffix', $.identifier)),
       ),
-      optional(field('suffix', $.identifier)),
+      seq(
+        field('prefix', $.identifier),
+        $._immediate_string_start,
+        choice(
+          seq(
+            alias($._delimiter_str_1, $.string_start),
+            repeat(choice(alias($._content_str_1_raw, $.content), $.escape_sequence)),
+            alias($._end_str, $.string_end),
+          ),
+          seq(
+            alias($._delimiter_str_3, $.string_start),
+            repeat(choice(alias($._content_str_3_raw, $.content), $.escape_sequence)),
+            alias($._end_str, $.string_end),
+          ),
+        ),
+        optional(field('suffix', $.identifier)),
+      ),
     )),
 
     prefixed_command_literal: $ => prec.left(seq(

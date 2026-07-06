@@ -17,6 +17,7 @@ enum TokenType {
     IMMEDIATE_BRACE,
     IMMEDIATE_STRING_START,
     IMMEDIATE_COMMAND_START,
+    INTERPOLATING_STRING_PREFIX,
     CONTENT_CMD_1,
     CONTENT_CMD_1_RAW,
     CONTENT_CMD_3,
@@ -44,6 +45,39 @@ void tree_sitter_julia_external_scanner_deserialize(void *payload, const char *b
 static void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
 
 static void mark_end(TSLexer *lexer) { lexer->mark_end(lexer); }
+
+static bool scan_interpolating_string_prefix(TSLexer *lexer) {
+    switch (lexer->lookahead) {
+        case 'l':
+            advance(lexer);
+            if (lexer->lookahead != 'a') return false;
+            advance(lexer);
+            if (lexer->lookahead != 'z') return false;
+            advance(lexer);
+            if (lexer->lookahead != 'y') return false;
+            advance(lexer);
+            break;
+        case 'm':
+            advance(lexer);
+            if (lexer->lookahead != 'd') return false;
+            advance(lexer);
+            break;
+        case 'p':
+            advance(lexer);
+            if (lexer->lookahead != 'y') return false;
+            advance(lexer);
+            break;
+        default:
+            return false;
+    }
+
+    mark_end(lexer);
+    if (lexer->lookahead == '"') {
+        lexer->result_symbol = INTERPOLATING_STRING_PREFIX;
+        return true;
+    }
+    return false;
+}
 
 static bool scan_content(TSLexer *lexer, TSSymbol content_symbol, char end_char, unsigned n_delim, bool interp) {
     TSSymbol end_symbol = (end_char == '"') ? END_STR : END_CMD;
@@ -145,6 +179,10 @@ bool tree_sitter_julia_external_scanner_scan(void *payload, TSLexer *lexer, cons
     }
 
     if (valid_symbols[BLOCK_COMMENT_REST] && scan_block_comment(lexer)) {
+        return true;
+    }
+
+    if (valid_symbols[INTERPOLATING_STRING_PREFIX] && scan_interpolating_string_prefix(lexer)) {
         return true;
     }
 

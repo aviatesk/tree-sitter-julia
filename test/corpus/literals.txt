@@ -217,6 +217,16 @@ non-standard string literals
 trailing_ws = r"\s+$"
 version = v"1.0"
 K"\\"
+md"foo is $foo"
+md"foo is $(call(interpolated))"
+py"sum($xs)"
+py"sum($(make_xs()))"
+lazy"this is $(call(interpolated))"
+lazy"""this is $(call(interpolated))"""
+raw_expr = r"$(not_interpolated)"
+md = 1
+py = 2
+lazy = 3
 
 ---
 
@@ -241,7 +251,82 @@ K"\\"
     prefix: (identifier)
     (string_start)
     (escape_sequence)
-    (string_end)))
+    (string_end))
+  (prefixed_string_literal
+    prefix: (identifier)
+    (string_start)
+    (content)
+    (string_interpolation
+      (identifier))
+    (string_end))
+  (prefixed_string_literal
+    prefix: (identifier)
+    (string_start)
+    (content)
+    (string_interpolation
+      (call_expression
+        (identifier)
+        (argument_list
+          (identifier))))
+    (string_end))
+  (prefixed_string_literal
+    prefix: (identifier)
+    (string_start)
+    (content)
+    (string_interpolation
+      (identifier))
+    (content)
+    (string_end))
+  (prefixed_string_literal
+    prefix: (identifier)
+    (string_start)
+    (content)
+    (string_interpolation
+      (call_expression
+        (identifier)
+        (argument_list)))
+    (content)
+    (string_end))
+  (prefixed_string_literal
+    prefix: (identifier)
+    (string_start)
+    (content)
+    (string_interpolation
+      (call_expression
+        (identifier)
+        (argument_list
+          (identifier))))
+    (string_end))
+  (prefixed_string_literal
+    prefix: (identifier)
+    (string_start)
+    (content)
+    (string_interpolation
+      (call_expression
+        (identifier)
+        (argument_list
+          (identifier))))
+    (string_end))
+  (assignment
+    (identifier)
+    (operator)
+    (prefixed_string_literal
+      prefix: (identifier)
+      (string_start)
+      (content)
+      (string_end)))
+  (assignment
+    (identifier)
+    (operator)
+    (integer_literal))
+  (assignment
+    (identifier)
+    (operator)
+    (integer_literal))
+  (assignment
+    (identifier)
+    (operator)
+    (integer_literal)))
 
 ==============================
 comments

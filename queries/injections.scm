@@ -36,6 +36,13 @@
   (#eq? @_prefix "md")
   (#set! injection.language "markdown"))
 
+; Inject Python in py"..." and py"""...""" (e.g. py"sum($xs)")
+(prefixed_string_literal
+  prefix: (identifier) @_prefix
+  (content) @injection.content
+  (#eq? @_prefix "py")
+  (#set! injection.language "python"))
+
 ; Inject bash in `...` and ```...``` (e.g. `git add --help`)
 (command_literal
   (content) @injection.content
