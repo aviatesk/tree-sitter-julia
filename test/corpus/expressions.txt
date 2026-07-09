@@ -395,10 +395,15 @@ quote expressions
 
 :foo
 :const
+:function
+:return
+:begin
+:true
 
 :(x; y)
 :(x, y)
 :[x, y, z]
+[:function, :return, :begin, :where, :true]
 
 :+
 :->
@@ -412,6 +417,14 @@ quote expressions
   (quote_expression
     (identifier))
   (quote_expression
+    (identifier))
+  (quote_expression
+    (identifier))
+  (quote_expression
+    (identifier))
+  (quote_expression
+    (boolean_literal))
+  (quote_expression
     (parenthesized_expression
       (identifier)
       (identifier)))
@@ -424,6 +437,17 @@ quote expressions
       (identifier)
       (identifier)
       (identifier)))
+  (vector_expression
+    (quote_expression
+      (identifier))
+    (quote_expression
+      (identifier))
+    (quote_expression
+      (identifier))
+    (quote_expression
+      (identifier))
+    (quote_expression
+      (boolean_literal)))
   (quote_expression
     (operator))
   (quote_expression

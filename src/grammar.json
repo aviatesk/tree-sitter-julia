@@ -2814,6 +2814,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "boolean_literal"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_string"
               },
               {
@@ -2990,6 +2994,14 @@
                       },
                       {
                         "type": "STRING",
+                        "value": "type"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "begin"
+                      },
+                      {
+                        "type": "STRING",
                         "value": "quote"
                       },
                       {
@@ -3038,11 +3050,35 @@
                       },
                       {
                         "type": "STRING",
+                        "value": "return"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "function"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "macro"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "do"
+                      },
+                      {
+                        "type": "STRING",
                         "value": "using"
                       },
                       {
                         "type": "STRING",
                         "value": "import"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "export"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "public"
                       },
                       {
                         "type": "STRING",
@@ -3055,6 +3091,26 @@
                       {
                         "type": "STRING",
                         "value": "local"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "where"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "in"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "isa"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "outer"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "as"
                       },
                       {
                         "type": "STRING",
